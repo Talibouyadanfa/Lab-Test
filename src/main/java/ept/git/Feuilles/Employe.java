@@ -17,10 +17,6 @@ public class Employe implements Component {
         return nom;
     }
 
-    public void afficherDetails() {
-        System.out.println("\t\tEmployé : " + nom + ", Salaire : " + salaire);
-    }
-
     public double calculerSalaireTotal() {
         return salaire;
     }
@@ -36,9 +32,6 @@ public class Employe implements Component {
         // Ne fait rien, car un employé ne peut pas déplacer d'autres employés
     }
 
-    public void supprimer() {
-        System.out.println("\t\tEmployé " + nom + " supprimé.");
-    }
 
     @Override
     public void ajouter(Component employe) {

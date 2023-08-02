@@ -19,12 +19,6 @@ public class Equipe implements Component {
         employes.add(component);
     }
 
-    public void supprimer() {
-        // Supprimer l'équipe en cascade en supprimant d'abord les employés
-        employes.clear();
-        System.out.println("\tÉquipe " + nom + " supprimée.");
-    }
-
     public String getNom() {
         return nom;
     }
