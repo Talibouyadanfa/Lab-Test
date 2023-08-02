@@ -1,15 +1,12 @@
 package ept.git;
 
 
-import ept.git.Composite.Departement;
 import ept.git.Composite.Equipe;
 import ept.git.Feuilles.Employe;
 
 public class Main {
     public static void main(String[] args) {
         // Création de la structure hiérarchique de l'entreprise
-        Departement departementA = new Departement("Département A");
-        Departement departementB = new Departement("Département B");
 
         Equipe equipeA1 = new Equipe("Équipe A1");
         Equipe equipeA2 = new Equipe("Équipe A2");
@@ -25,10 +22,7 @@ public class Main {
         Employe employe7 = new Employe("Employé 7", 4900);
         Employe employe8 = new Employe("Employé 8", 5100);
 
-        departementA.ajouter(equipeA1);
-        departementA.ajouter(equipeA2);
-        departementB.ajouter(equipeB1);
-        departementB.ajouter(equipeB2);
+
 
         equipeA1.ajouter(employe1);
         equipeA1.ajouter(employe2);
@@ -39,24 +33,10 @@ public class Main {
         equipeB2.ajouter(employe7);
         equipeB2.ajouter(employe8);
 
-        // Affichage de la structure hiérarchique de l'entreprise
-        System.out.println("Structure hiérarchique de l'entreprise :");
-        departementA.afficherDetails();
-        departementB.afficherDetails();
 
-        // Calcul du salaire total de l'entreprise
-        double salaireTotal = departementA.calculerSalaireTotal() + departementB.calculerSalaireTotal();
-        System.out.println("Salaire total de l'entreprise : " + salaireTotal);
-
-        // Recherche d'un employé spécifique
-        String nomEmployeRecherche = "Employé 3";
-        Component employeRecherche = departementA.rechercherEmploye(nomEmployeRecherche);
-        if (employeRecherche != null) {
-            System.out.println("Employé trouvé : " + nomEmployeRecherche);
-            employeRecherche.afficherDetails();
-        } else {
-            System.out.println("Employé " + nomEmployeRecherche + " non trouvé.");
-        }
+        // Calcul du salaire total de l'entreprise en se basant sur les equipes.
+        double salaireTotal2 = equipeA1.calculerSalaireTotal()+ equipeA2.calculerSalaireTotal()+ equipeB1.calculerSalaireTotal()+ equipeB2.calculerSalaireTotal();
+        System.out.println("Salaire total de l'entreprise : " + salaireTotal2);
 
         // Déplacer un employé d'une équipe à une autre
         Component employeDeplacer = equipeA1.rechercherEmploye("Employé 2");
@@ -67,7 +47,6 @@ public class Main {
             System.out.println("Employé à déplacer non trouvé.");
         }
 
-        // Suppression d'un département
-        departementA.supprimer();
+
     }
 }

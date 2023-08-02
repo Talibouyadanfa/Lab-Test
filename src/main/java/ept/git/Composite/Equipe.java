@@ -29,12 +29,6 @@ public class Equipe implements Component {
         return nom;
     }
 
-    public void afficherDetails() {
-        System.out.println("\tÉquipe : " + nom);
-        for (Component component : employes) {
-            component.afficherDetails();
-        }
-    }
 
     public double calculerSalaireTotal() {
         double salaireTotal = 0;
